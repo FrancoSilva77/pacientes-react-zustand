@@ -37,11 +37,15 @@ export default function PatientForm() {
   const registerPatient = (data: DraftPatient) => {
     if (activeId) {
       updatePatient(data);
+      // * Opcion 1
+      toast('Paciente Actualizado Correctamente', {
+        type: 'success'
+      });
     } else {
       addPatient(data);
+      // * Opcion 2
       toast.success('Paciente registrado correctamente');
     }
-
     reset();
   };
 
