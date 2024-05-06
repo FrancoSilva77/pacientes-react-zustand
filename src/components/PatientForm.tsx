@@ -32,18 +32,19 @@ export default function PatientForm() {
       setValue('email', activePatient.email);
       setValue('date', activePatient.date);
       setValue('symptoms', activePatient.symptoms);
+      setValue('phone', activePatient.phone);
     }
   }, [activeId]);
   const registerPatient = (data: DraftPatient) => {
     if (activeId) {
       updatePatient(data);
-      // * Opcion 1
+      // * Opcion 1- Toast
       toast('Paciente Actualizado Correctamente', {
         type: 'success'
       });
     } else {
       addPatient(data);
-      // * Opcion 2
+      // * Opcion 2 - Toast
       toast.success('Paciente registrado correctamente');
     }
     reset();
@@ -128,6 +129,30 @@ export default function PatientForm() {
           />
 
           {errors.email && <Error>{errors.email?.message}</Error>}
+        </div>
+
+        <div className="mb-5">
+          <label
+            htmlFor="phone"
+            className="text-sm uppercase font-bold"
+          >
+            Número de telefono
+          </label>
+          <input
+            id="phone"
+            className="w-full p-3  border border-gray-100"
+            type="number"
+            placeholder="Número de contacto"
+            {...register('phone', {
+              required: 'El número es Obligatorio',
+              pattern: {
+                value: /^\d{10}$/,
+                message: 'Número de telefono no válido'
+              },
+            })}
+          />
+
+          {errors.phone && <Error>{errors.phone?.message}</Error>}
         </div>
 
         <div className="mb-5">

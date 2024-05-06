@@ -1,6 +1,6 @@
 type PatientDetailItemProps = {
   label: string,
-  data: string
+  data: string | number
 }
 
 export default function PatientDetailItem({label,data}:PatientDetailItemProps) {

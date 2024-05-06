@@ -34,11 +34,15 @@ export default function PatientDetails({ patient }: PatientDetailsProps) {
         data={patient.email}
       />
       <PatientDetailItem
+        label="Número de telefono"
+        data={patient.phone}
+      />
+      <PatientDetailItem
         label="Fecha Alta"
         data={patient.date.toString()}
       />
       <PatientDetailItem
-        label="Fecha Alta"
+        label="Sintomas"
         data={patient.symptoms}
       />
 
